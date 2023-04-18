@@ -85,7 +85,7 @@ impl ReadyReminderServer {
                     if entry.get_time() <= &SystemTime::now() {
                         let e = (&mut self.entries).pop();
                         let c = e.clone().unwrap().callback;
-                        c.execute();
+                        c.execute(); // execute the callback
                     } else {
                         continue;
                     }
